@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { font-family: 'Poppins', system-ui, sans-serif; color: #0f172a; margin: 0; }
+
+/* Same blue used on the splash page, login/signup and onboarding */
+.bg-brand {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255,255,255,.35), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(125,211,252,.45), transparent 45%),
+    linear-gradient(160deg, #38bdf8 0%, #2563eb 55%, #1d4ed8 100%);
+}
+.bg-app { background: linear-gradient(160deg, #e0f2fe 0%, #eff6ff 45%, #ede9fe 100%); }
+
+/* Crystal (glass) surfaces + buttons with soft layered shadows */
+.crystal {
+  background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(255,255,255,.42));
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 14px 30px -10px rgba(37,99,235,.35),
+    0 3px 8px rgba(15,23,42,.08),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -10px 20px rgba(147,197,253,.22);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.crystal-hover:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 22px 38px -12px rgba(37,99,235,.45),
+    0 4px 10px rgba(15,23,42,.10),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -10px 20px rgba(147,197,253,.28);
+}
+.crystal-selected { outline: 3px solid #2563eb; outline-offset: -3px; }
+
+.crystal-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  padding: .8rem 1.6rem; border-radius: 9999px; font-weight: 600; color: #fff; cursor: pointer;
+  background: linear-gradient(180deg, #7dd3fc 0%, #2563eb 55%, #1d4ed8 100%);
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow:
+    0 12px 22px -8px rgba(37,99,235,.75),
+    0 2px 4px rgba(15,23,42,.18),
+    inset 0 2px 0 rgba(255,255,255,.6),
+    inset 0 -5px 10px rgba(30,64,175,.35);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.crystal-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+.crystal-btn:active { transform: translateY(1px); }
+.crystal-btn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+.crystal-btn-light {
+  color: #1d4ed8;
+  background: linear-gradient(180deg, #ffffff 0%, #dbeafe 100%);
+  box-shadow: 0 10px 20px -8px rgba(15,23,42,.35), 0 2px 4px rgba(15,23,42,.12),
+    inset 0 2px 0 #fff, inset 0 -4px 8px rgba(147,197,253,.55);
+}
+.crystal-btn-green { background: linear-gradient(180deg, #86efac 0%, #16a34a 60%, #15803d 100%);
+  box-shadow: 0 12px 22px -8px rgba(22,163,74,.7), 0 2px 4px rgba(15,23,42,.18), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -5px 10px rgba(21,128,61,.35); }
+.crystal-btn-red { background: linear-gradient(180deg, #fca5a5 0%, #ef4444 60%, #b91c1c 100%);
+  box-shadow: 0 12px 22px -8px rgba(239,68,68,.7), 0 2px 4px rgba(15,23,42,.18), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -5px 10px rgba(185,28,28,.35); }
+.crystal-btn-sm { padding: .45rem 1rem; font-size: .85rem; }
+
+.crystal-input {
+  width: 100%; padding: .85rem 1.1rem; border-radius: 9999px; outline: none;
+  background: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.95);
+  box-shadow: inset 0 2px 6px rgba(37,99,235,.12), 0 4px 10px -4px rgba(37,99,235,.25);
+}
+.crystal-input:focus { box-shadow: 0 0 0 3px rgba(37,99,235,.35), inset 0 2px 6px rgba(37,99,235,.12); }
+
+.scroll-thin::-webkit-scrollbar { width: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: rgba(37,99,235,.35); border-radius: 9999px; }

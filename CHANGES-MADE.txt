@@ -1,0 +1,33 @@
+SpeakSphere - updated project notes
+
+Changes in this version:
+1. Language options now include the 28 requested languages (and only those languages).
+2. Removed the source/target language search input; users choose from the visible language cards.
+3. Daily learned-word hiding is keyed by source language + target language + date, so switching language pairs does not hide words learned in another pair.
+4. Preserved the existing app structure and features: authentication, onboarding, learning categories, alphabet lessons, speaking, daily chat, quizzes, progress, achievements and dashboard.
+5. Existing alphabet examples remain curated for Tamil/Hindi/English pairs. For other language pairs, the UI still indicates that curated alphabet lessons are not yet supplied; the language list itself does not imply complete alphabet content for every pair.
+
+Setup:
+- Extract this ZIP.
+- Run npm install in speaksphere/frontend and speaksphere/backend.
+- Configure backend/.env using the README, then start the backend and frontend as described there.
+- Browser speech recognition/synthesis support differs by browser and language.
+
+
+Language selection scope update (2026-10-10): The backend language catalogue and API now expose only these 8 languages: French, German, Korean, Chinese, Japanese, Tamil, English, and Hindi. The language picker reads this catalogue from the API, so both source and target choices use the same list. Browser speech availability depends on the device/browser.
+
+
+=== Update 2026-10-10 (handwritten notes 1, 2, 3, 5, 6, 7) ===
+1. Alphabet & meanings: the SOURCE letter's sound is no longer shown. Under the TARGET letter it now shows how to say/spell it ("Sound: ka").
+2. Every target letter is now one clean letter (no more words such as "ए (निकट ध्वनि)" or "सीधा समान अक्षर नहीं"). Tamil ழ/ற use ऴ/ऱ. Added Tamil -> English alphabet.
+3. The "ALPHABET BRIDGE" box (title, description, search, count) is removed from Learn; the letter cards stay.
+5. Daily Chat and Speak > Talk with AI: each AI reply in the target language now has a "🔤 How to read it" line (romanization / pinyin / romaji / phonetic spelling), plus the existing 🔊 speak button.
+6. After login (and splash / onboarding) the app opens Learn, with "Welcome, <username> 👋" at the top.
+7. Progress is stored per language pair (e.g. ta>en). Switching to another pair gives fresh words, XP, quiz, speaking, chat counts and charts. Badges/streak stay lifetime.
+   Database: schema.sql adds a `pair` column (existing rows are assigned to the user's current pair) and quiz_results is now unique per (user, day, pair). No need to recreate the database.
+Note 4 was not in the photos (only the end "...pesum bodhu" was visible at the top of page 5), so it is NOT done yet.
+
+=== Verification pass (notes 5, 6, 7 re-checked, 2026-10-10) ===
+5. Daily Chat / Speak > Talk with AI: "How to read it" line confirmed. Added demo (mock) pronunciations for French, German, Japanese, Korean and Chinese, and a fallback so live AI replies always get a spelling guide even if the model forgets it.
+6. Login -> Learn with "Welcome, <username> 👋" confirmed. The header now also shows above the first "Welcome to your first lesson" screen.
+7. Per-language-pair progress confirmed (words, XP, quiz, speaking, chat, charts and the daily-hidden words are all keyed by pair).
